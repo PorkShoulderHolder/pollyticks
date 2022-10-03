@@ -3,14 +3,14 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import seaborn as sns
-df = pd.read_csv("county_income.csv", sep=',')
+df = pd.read_csv("data/county_income.csv", sep=',')
 
 income = df[df.LineCode == 3]
 population = df[df.LineCode == 2]
 
 
-results = pd.read_json("election_results.json")
-density = pd.read_csv("Population-Density-By-County.csv")
+results = pd.read_json("data/election_results.json")
+density = pd.read_csv("data/Population-Density-By-County.csv")
 
 merged = pd.merge(results, income, left_on='fips', right_on='GeoFips')
 merged["income_per_capita"] = pd.to_numeric(merged['2019'], errors='coerce')

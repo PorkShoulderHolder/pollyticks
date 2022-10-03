@@ -32,6 +32,6 @@ def get_data():
             pass
 
     print(len(new_data))
-    json.dump(new_data, open('election_results.json', 'w+'))
+    json.dump(new_data, open('data/election_results.json', 'w+'))
 
 get_data()
